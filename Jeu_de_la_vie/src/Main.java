@@ -1,9 +1,13 @@
 public class Main implements Runnable{
-    private Fenetre f;
+    public Fenetre f;
+    public Controller c;
+    public GrilleModele grille;
 
     public Main(){
-        f = new Fenetre();
-        //Controller c = new Controller(f);
+        int size = 20;
+        this.grille = new GrilleModele(size);
+        this.f = new Fenetre(size, grille);
+        this.c = new Controller(grille);
     }
 
     @Override
