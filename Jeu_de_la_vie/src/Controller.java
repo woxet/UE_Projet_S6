@@ -12,7 +12,10 @@ public class Controller {
         });
 
         grille.addMouseMotionListener(new MouseMotionListener(){
-            public void mouseDragged(MouseEvent e) {}
+            public void mouseDragged(MouseEvent e) {
+                grille.t[(int)(e.getY()/(400/20))][(int)(e.getX()/(400/20))] = 1 ;
+                grille.repaint();
+            }
             public void mouseMoved(MouseEvent e) {}
         });
     }
