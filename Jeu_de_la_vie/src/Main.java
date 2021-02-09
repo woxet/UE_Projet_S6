@@ -1,12 +1,12 @@
 public class Main implements Runnable{
-    public Fenetre f;
+    public Vue f;
     public Controller c;
-    public GrilleModele grille;
+    public Modele grille;
 
     public Main(){
         int size = 20;
-        this.grille = new GrilleModele(size);
-        this.f = new Fenetre(size, grille);
+        this.grille = new Modele(size);
+        this.f = new Vue(size, grille);
         this.c = new Controller(grille);
     }
 

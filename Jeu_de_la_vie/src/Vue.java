@@ -2,16 +2,16 @@ import java.awt.*;
 import java.awt.Color;
 import javax.swing.*;
 
-public class Fenetre extends JFrame {
+public class Vue extends JFrame {
     /**
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
 	private JPanel container = new JPanel();
-	public GrilleModele grille; 
+	public Modele grille; 
 
-    public Fenetre(int size, GrilleModele grille) {
+    public Vue(int size, Modele grille) {
 		this.grille = grille;
 		this.setTitle("Jeu de La Vie");
 		this.setSize((size*21)+5, (size*21)+5);

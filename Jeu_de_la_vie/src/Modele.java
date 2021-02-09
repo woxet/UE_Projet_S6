@@ -2,7 +2,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class GrilleModele extends JPanel {
+public class Modele extends JPanel {
     /**
      *
      */
@@ -12,7 +12,7 @@ public class GrilleModele extends JPanel {
     int size;
     int[][] t;
 
-    public GrilleModele(int size){
+    public Modele(int size){
         this.size = size;
         this.t = new int[size][size];
         
