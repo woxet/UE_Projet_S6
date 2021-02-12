@@ -22,12 +22,41 @@ public class Modele extends JPanel {
             }
         }
         //Grenouille
-		/*t[10][8] = 1 ;
+		t[10][8] = 1 ;
 		t[10][9] = 1 ;
-		t[11][9] = 1 ;
-		t[11][8] = 1 ;
-		t[10][7] = 1 ;
-		t[11][10] = 1 ;*/
+		t[10][10] = 1 ;
+	}
+
+	public void vie(){
+		int voisin = 0;
+		int [][]t2 = new int[size][size];
+		for(int a = 1; a < 29; a++){
+			for(int b = 1; b < 29; b++){
+				for(int c = a-1; c <= a+1; c++){
+					for(int d = b-1; d <= b+1; d++){
+						if(this.t[c][d] == 1){
+							voisin++;
+						}
+						if(this.t[c][d] == 1 && c == a && b == d){
+							voisin--;
+						}
+					}
+				}
+				switch(voisin){
+					case 3 : t2[a][b] = 1 ;
+					break ;
+					case 2 : t2[a][b] = t[a][b] ;
+					break ;
+					default : t2[a][b] = 0  ;
+				}
+				voisin = 0;
+			}
+		}
+		for(int i = 0; i < size-1; i++){
+			for(int j = 0; j < size-1; j++){
+				this.t[i][j] = t2[i][j];
+			}
+		}
 	}
 
     public void paintComponent(Graphics g)

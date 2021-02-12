@@ -19,6 +19,7 @@ public class Main implements Runnable{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            this.grille.vie();
         }
     }
 
