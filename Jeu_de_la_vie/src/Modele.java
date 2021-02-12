@@ -22,14 +22,13 @@ public class Modele extends JPanel {
             }
         }
         //Grenouille
-		t[10][8] = 1 ;
+		/*t[10][8] = 1 ;
 		t[10][9] = 1 ;
 		t[11][9] = 1 ;
 		t[11][8] = 1 ;
 		t[10][7] = 1 ;
-		t[11][10] = 1 ;
-
-    }
+		t[11][10] = 1 ;*/
+	}
 
     public void paintComponent(Graphics g)
 	{

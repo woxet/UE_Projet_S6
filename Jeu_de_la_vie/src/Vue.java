@@ -14,7 +14,7 @@ public class Vue extends JFrame {
     public Vue(int size, Modele grille) {
 		this.grille = grille;
 		this.setTitle("Jeu de La Vie");
-		this.setSize((size*21)+5, (size*21)+5);
+		this.setSize((size*20)+23, (size*20)+45);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
