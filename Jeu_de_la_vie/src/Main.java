@@ -10,16 +10,15 @@ public class Main implements Runnable{
         this.c = new Controller(grille);
     }
 
-    @Override
-    public void run() {
+	public void run() {
         while (true) {
             this.f.repaint();
             try {
-                Thread.sleep(100);
+                Thread.sleep(250);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            this.grille.vie();
+        this.grille.vie();
         }
     }
 

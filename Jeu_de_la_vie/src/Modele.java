@@ -16,9 +16,9 @@ public class Modele extends JPanel {
         this.size = size;
         this.t = new int[size][size];
         
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-                t[i][j] = 0;
+        for(int a= 0; a< size; a++){
+            for(int b= 0; b< size; b++){
+                t[a][b] = 0;
             }
         }
         //Grenouille
@@ -30,46 +30,166 @@ public class Modele extends JPanel {
 	public void vie(){
 		int voisin = 0;
 		int [][]t2 = new int[size][size];
-		for(int a = 1; a < 29; a++){
-			for(int b = 1; b < 29; b++){
-				for(int c = a-1; c <= a+1; c++){
-					for(int d = b-1; d <= b+1; d++){
-						if(this.t[c][d] == 1){
-							voisin++;
-						}
-						if(this.t[c][d] == 1 && c == a && b == d){
-							voisin--;
+		for(int a = 0; a < this.size; a++){
+			for(int b = 0; b < this.size; b++){
+				//Coin haut gauche
+				if(a == 0 && b == 0){
+					for(int k =  0 ; k < 2 ;  k ++) {
+						for(int h = 0 ; h < 2 ; h ++){
+							if(t[k][h] == 1 ){
+								voisin++ ;
+							}
+							if(t[k][h] == 1 && k == 0 && h == 0){
+								voisin = voisin - 1 ;
+							}
+							
 						}
 					}
 				}
+
+				//Coin bas gauche
+				if(a == 0 && b == this.size-1){
+					for(int k = 0 ; k < 1 ; k ++ ){
+						for(int h = this.size-2 ; h < this.size ; h++){
+							if(t[k][h] == 1 ){
+								voisin ++ ;
+							}
+							if(t[k][h] == 1 && h == 0 && k == this.size-2){
+								voisin --  ;
+							}
+						}
+					}
+				}
+				
+				//Coin haut droit
+				if(a == this.size-1 && b == 0){
+					for(int k = this.size-2 ; k < this.size ; k ++ ){
+						for(int h = 0 ; h < 2 ; h++){
+							if(t[k][h] == 1 ){
+								voisin ++ ;
+							}
+							if(t[k][h] == 1 && h == 0  && k == this.size-1)
+							{
+								voisin -- ;
+							}							
+						}
+					}
+				}
+
+				//Coin bas droit
+				if(a == this.size-1 && b == this.size-1){
+					for(int k = this.size-2 ; k < this.size ; k ++ ){
+						for(int h = this.size-2 ; h < this.size ; h++){
+							if(t[k][h] == 1 ){
+								voisin ++ ;
+							}
+							
+							if(t[k][h] == 1 && h == this.size-1 && k == this.size-1){
+								voisin  -- ;
+							}
+							
+						}
+					}
+				}
+
+				//colonne gauche
+				if(a == 0 && b > 0 && b < this.size-1){
+					for(int k = 0 ; k < 2 ; k++){
+						for(int h = b-1 ; h < b+2 ; h++){
+							if(t[k][h] == 1 ){
+								voisin ++ ;
+							}
+							if(t[k][h] == 1  && k == a && h == b){
+								voisin = voisin-1;
+							}							
+						}
+					}
+				}
+				
+				//colonne droite
+				if(a == this.size-1 && b > 0 && b < this.size-1){
+					for(int k = this.size-2 ; k < this.size ; k++){
+						for(int h = a-1 ; h < b+2 ; h++ ){
+							if(t[k][h] == 1 ){
+								voisin ++ ;
+							}
+							if(t[k][h] == 1 && h == a  && k == b){
+								voisin-- ;
+							}
+						}
+					}
+				}
+				
+				//ligne haut
+				if(b ==  0 && a > 0 && a < this.size-1){
+					for(int k = a-1 ; k < a+2 ; k++){
+						for(int h =  0 ; h < 2 ; h++ ){
+							if(t[k][h] == 1 ){
+								voisin ++ ;
+							}
+							if(t[k][h] == 1 && h == a  && k == b){
+								voisin-- ;
+							}
+						}
+					}
+				}
+				
+				//ligne bas
+				if(b == this.size-1 && a > 0 && a < this.size-1){
+					for(int k = a-1 ; k < a+2 ; k ++){
+						for(int h = this.size-2 ; h < this.size ; h++){
+							if(t[k][h] == 1 ){
+								voisin++ ;
+							}
+							if(t[k][h] == 1 && h != a  && k != b){
+								voisin--;
+							}
+						}
+					}
+				}
+
+				//centre de la grille
+				if(a > 0 && a < this.size-1 && b > 0 && b < this.size-1){
+					for(int c = a-1; c <= a+1; c++){
+						for(int d = b-1; d <= b+1; d++){
+							if(this.t[c][d] == 1){
+								voisin++;
+							}
+							if(this.t[c][d] == 1 && c == a && b == d){
+								voisin--;
+							}
+						}
+					}
+				}
+
 				switch(voisin){
 					case 3 : t2[a][b] = 1 ;
 					break ;
-					case 2 : t2[a][b] = t[a][b] ;
+					case 2 : t2[a][b] = this.t[a][b] ;
 					break ;
 					default : t2[a][b] = 0  ;
 				}
 				voisin = 0;
 			}
 		}
-		for(int i = 0; i < size-1; i++){
-			for(int j = 0; j < size-1; j++){
-				this.t[i][j] = t2[i][j];
+		for(int a= 0; a< this.size-1; a++){
+			for(int b= 0; b< this.size-1; b++){
+				this.t[a][b] = t2[a][b];
 			}
 		}
 	}
 
     public void paintComponent(Graphics g)
 	{
-		for(int i = 0 ; i< this.t.length ; i ++){
-			for(int j = 0 ; j < this.t[0].length ; j++){
-				if(this.t[i][j] == 0){
+		for(int a= 0 ; a < this.t.length ; a++){
+			for(int b= 0 ; b< this.t[0].length ; b++){
+				if(this.t[a][b] == 0){
                     //g.setColor(Color.black) ;
                     //g.fillRect(x,y,30,30);
                     g.setColor(Color.green);
                     g.fillRect(x,y,17,17);
 				}
-				if(this.t[i][j] == 1){
+				if(this.t[a][b] == 1){
 					//g.setColor(Color.black) ;
 					//g.fillRect(x,y,30,30);
 					g.setColor(Color.red);
