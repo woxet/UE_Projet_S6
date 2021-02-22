@@ -32,6 +32,7 @@ public class Modele extends JPanel {
 		int [][]t2 = new int[size][size];
 		for(int a = 0; a < this.size; a++){
 			for(int b = 0; b < this.size; b++){
+				
 				//Coin haut gauche
 				if(a == 0 && b == 0){
 					for(int k =  0 ; k < 2 ;  k ++) {
@@ -42,14 +43,13 @@ public class Modele extends JPanel {
 							if(t[k][h] == 1 && k == 0 && h == 0){
 								voisin = voisin - 1 ;
 							}
-							
 						}
 					}
 				}
 
-				//Coin bas gauche
+				//Coin haut droit
 				if(a == 0 && b == this.size-1){
-					for(int k = 0 ; k < 1 ; k ++ ){
+					for(int k = 0 ; k < 2 ; k ++ ){
 						for(int h = this.size-2 ; h < this.size ; h++){
 							if(t[k][h] == 1 ){
 								voisin ++ ;
@@ -61,15 +61,14 @@ public class Modele extends JPanel {
 					}
 				}
 				
-				//Coin haut droit
+				//Coin bas gauche
 				if(a == this.size-1 && b == 0){
 					for(int k = this.size-2 ; k < this.size ; k ++ ){
 						for(int h = 0 ; h < 2 ; h++){
 							if(t[k][h] == 1 ){
 								voisin ++ ;
 							}
-							if(t[k][h] == 1 && h == 0  && k == this.size-1)
-							{
+							if(t[k][h] == 1 && k == this.size-1 && h == 0){
 								voisin -- ;
 							}							
 						}
