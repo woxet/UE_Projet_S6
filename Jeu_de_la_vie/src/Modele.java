@@ -7,12 +7,13 @@ public class Modele extends JPanel {
      *
      */
     private static final long serialVersionUID = 1L;
-    int x = 5;
-    int y = 5;
+    int x = 2;
+    int y = 3;
     int size;
     int[][] t;
 
     public Modele(int size){
+		this.setBackground(new java.awt.Color(0,0,0));
         this.size = size;
         this.t = new int[size][size];
         
@@ -182,15 +183,35 @@ public class Modele extends JPanel {
 	{
 		for(int a= 0 ; a < this.t.length ; a++){
 			for(int b= 0 ; b< this.t[0].length ; b++){
+				if(a==0 && b==0){
+					g.setColor(Color.black) ;
+            		g.fillRect(x-5,y-7,25,25);
+				}
+				if(a==0){
+					g.setColor(Color.black) ;
+            		g.fillRect(x,y-7,25,25);
+				}
+				if(b==0){
+					g.setColor(Color.black) ;
+            		g.fillRect(x-7,y,25,25);
+				}
+				if(a==this.t.length-1){
+					g.setColor(Color.black) ;
+            		g.fillRect(x,y+7,25,25);
+				}
+				if(b==this.t.length){
+					g.setColor(Color.black) ;
+            		g.fillRect(x+7,y,25,25);
+				}
 				if(this.t[a][b] == 0){
-                    //g.setColor(Color.black) ;
-                    //g.fillRect(x,y,30,30);
+                    g.setColor(Color.black) ;
+                    g.fillRect(x,y,25,25);
                     g.setColor(Color.green);
                     g.fillRect(x,y,17,17);
 				}
 				if(this.t[a][b] == 1){
-					//g.setColor(Color.black) ;
-					//g.fillRect(x,y,30,30);
+					g.setColor(Color.black) ;
+					g.fillRect(x,y,23,23);
 					g.setColor(Color.red);
 					g.fillRect(x,y,17,17);	
 				}
@@ -201,4 +222,5 @@ public class Modele extends JPanel {
 		}
 		x = y = 5 ;
 	}
+	
 }

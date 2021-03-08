@@ -7,6 +7,7 @@ public class Main implements Runnable{
         int size = 30;
         this.grille = new Modele(size);
         this.f = new Vue(size, grille);
+        
         this.c = new Controller(grille);
     }
 
