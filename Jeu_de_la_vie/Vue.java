@@ -1,15 +1,25 @@
 public class Vue extends javax.swing.JFrame {
-
 	private static final long serialVersionUID = 1L;
+        // Variables declaration - do not modify                     
+        public javax.swing.JButton jButton1;
+        public javax.swing.JButton jButton2;
+        public javax.swing.JButton jButton3;
+        private javax.swing.JLabel jLabel1;
+        private javax.swing.JLabel jLabel2;
+        private javax.swing.JLabel jLabel3;
+        private javax.swing.JLabel jLabel4;
+        private javax.swing.JLabel jLabel5;
+        private javax.swing.JLabel jLabel6;
+        public Modele grille;
+        // End of variables declaration   
 
     public Vue(int size, Modele grille) {
-        initComponents(size, grille);
+        this.grille = grille;
+        initComponents(size);
     }
                        
-    private void initComponents(int size, Modele grille) {
-
+    private void initComponents(int size) {
         jLabel5 = new javax.swing.JLabel();
-        this.grille = grille;
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -127,18 +137,5 @@ public class Vue extends javax.swing.JFrame {
         );
 		this.setVisible(true);
         pack();
-    }
-
-    // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private Modele grille;
-    // End of variables declaration                   
+    }                
 }

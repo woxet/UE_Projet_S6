@@ -1,4 +1,4 @@
-public class Main implements Runnable{
+public class Main extends Thread{
     public Vue f;
     public Controller c;
     public Modele grille;
@@ -8,7 +8,7 @@ public class Main implements Runnable{
         this.grille = new Modele(size);
         this.f = new Vue(size, grille);
         
-        this.c = new Controller(grille);
+        this.c = new Controller(this, f);
     }
 
 	public void run() {
@@ -25,6 +25,6 @@ public class Main implements Runnable{
 
     public static void main(String[] args) {
         Main jeu = new Main();
-        jeu.run();
+        jeu.start();
     }
 }
