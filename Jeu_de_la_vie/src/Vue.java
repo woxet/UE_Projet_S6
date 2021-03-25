@@ -69,12 +69,12 @@ public class Vue extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(61, 40));
         jLabel2.setPreferredSize(new java.awt.Dimension(61, 40));
 
-        jLabel3.setText("Personnes saines :");
+        jLabel3.setText("Personnes mortes :");
         jLabel3.setMaximumSize(new java.awt.Dimension(61, 40));
         jLabel3.setMinimumSize(new java.awt.Dimension(61, 40));
         jLabel3.setPreferredSize(new java.awt.Dimension(61, 40));
 
-        jLabel4.setText("Personnes saines :");
+        jLabel4.setText("Personnes infectées :");
         jLabel4.setMaximumSize(new java.awt.Dimension(61, 40));
         jLabel4.setMinimumSize(new java.awt.Dimension(61, 40));
         jLabel4.setPreferredSize(new java.awt.Dimension(61, 40));
@@ -84,11 +84,11 @@ public class Vue extends javax.swing.JFrame {
         jLabel6.setMinimumSize(new java.awt.Dimension(61, 40));
         jLabel6.setPreferredSize(new java.awt.Dimension(61, 40));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Start");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Stop");
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Restart");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

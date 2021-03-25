@@ -10,7 +10,7 @@ public class Controller implements ActionListener{
             public void mousePressed(MouseEvent e){
                 int x = (int)(e.getY()/20);
                 int y = (int)(e.getX()/20);
-                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length) f.grille.t[x][y] = 1 ;
+                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length && f.grille.t[x][y] == 0) f.grille.t[x][y] = 1 ;
                 f.grille.repaint();
             }
         });
@@ -19,7 +19,7 @@ public class Controller implements ActionListener{
             public void mouseDragged(MouseEvent e) {
                 int x = (int)(e.getY()/20);
                 int y = (int)(e.getX()/20);
-                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length) f.grille.t[x][y] = 1 ;
+                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length && f.grille.t[x][y] == 0) f.grille.t[x][y] = 1 ;
                 f.grille.repaint();
             }
             public void mouseMoved(MouseEvent e) {}
