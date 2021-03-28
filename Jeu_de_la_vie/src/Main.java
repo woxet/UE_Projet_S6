@@ -12,14 +12,20 @@ public class Main extends Thread{
     }
 
 	public void run() {
+        int[] compt;
         while (true) {
             this.f.repaint();
             try {
-                Thread.sleep(250);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        if(c.etat) this.grille.vie();
+            if(c.etat) this.grille.vie();
+            compt = grille.compteurs();
+                this.f.alive.setText("Personnes saines : "+compt[0]);
+                this.f.infected.setText("Personnes infectées : "+compt[1]);
+                this.f.dead.setText("Personnes mortes : "+compt[3]);
+                this.f.pop.setText("Population : "+(compt[0]+compt[1]+compt[2]));
         }
     }
 

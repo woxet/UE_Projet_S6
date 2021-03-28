@@ -154,6 +154,18 @@ public class Modele extends JPanel {
 		}
 	}
 
+	public int[] compteurs(){
+		int[] compt = new int[4];
+		for(int x = 0; x < 4; x++) compt[x] = 0;
+
+		for(int i = 0; i < this.size; i++){
+			for(int j = 0; j < this.size; j++){
+				compt[this.t[i][j]]++;
+			}
+		}
+		return compt;
+	}
+
     public void paintComponent(Graphics g)
 	{
 		for(int a= 0 ; a < this.t.length ; a++){
