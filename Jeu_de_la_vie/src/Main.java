@@ -19,7 +19,7 @@ public class Main extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        this.grille.vie();
+        if(c.etat) this.grille.vie();
         }
     }
 

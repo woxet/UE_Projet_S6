@@ -1,6 +1,8 @@
 import java.awt.event.*;
 
 public class Controller implements ActionListener{
+
+    boolean etat = false;
     Vue f;
     Main m;
     public Controller(Main m, Vue f){
@@ -35,10 +37,19 @@ public class Controller implements ActionListener{
     public void actionPerformed(ActionEvent evt) {
         Object source = evt.getSource();
         if (source == this.f.jButton1){
-            this.m.interrupt();
+            if(!etat) etat = true;
         }
         if (source == this.f.jButton2){
-            this.m.start();
+            if(etat) etat = false;
+        }
+
+        if (source == this.f.jButton3){
+            if(etat) etat = false;
+            for(int a= 0; a< f.grille.size; a++){
+                for(int b= 0; b< f.grille.size; b++){
+                    f.grille.t[a][b] = 0;
+                }
+            }
         }
     }
 

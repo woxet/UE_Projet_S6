@@ -26,27 +26,123 @@ public class Modele extends JPanel {
 
 	public void vie(){
 		int [][]t2 = new int[size][size];
-		double rand = 0, pImmune = 0.2, pMort = 0.1, npChange = 0.7;
+		for(int a= 0; a< size; a++){
+			for(int b= 0; b< size; b++){
+				t2[a][b] = 0;
+			}
+		}
+		
+		double rand = 0, pImmune = 0.15, pMort = 0.05, npChange = 0.8;
 		for(int a = 0; a < this.size; a++){
 			for(int b = 0; b < this.size; b++){
 				//rand = Math.random();
-				if(a > 0 && a < this.size-1 && b > 0 && b < this.size-1){
+				if((a==0 && b == 0)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if(rand <= 0.40 && t[a+1][b] == 0) t2[a+1][b] = 1;
+						if(rand <= 0.30 && t[a][b+1] == 0) t2[a][b+1] = 1;
 						rand = Math.random();
-						if(rand <= 0.40 && t[a-1][b] == 0) t2[a-1][b] = 1;
-						rand = Math.random();
-						if(rand <= 0.40 && t[a][b+1] == 0) t2[a][b+1] = 1;
-						rand = Math.random();
-						if(rand <= 0.40 && t[a][b-1] == 0) t2[a][b-1] = 1;
+						if(rand <= 0.30 && t[a+1][b] == 0) t2[a+1][b] = 1;
 
 						rand = Math.random();
 						if(rand <= npChange) t2[a][b] = 1;
 						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
 								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
 					}
-					else t2[a][b] = t[a][b];			
+					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
+				}
+
+				if((a==this.size-1 && b == 0)){
+					if(t[a][b] == 1){
+						rand = Math.random();
+						if(rand <= 0.30 && t[a][b+1] == 0) t2[a][b+1] = 1;
+						rand = Math.random();
+						if(rand <= 0.30 && t[a-1][b] == 0) t2[a-1][b] = 1;
+
+						rand = Math.random();
+						if(rand <= npChange) t2[a][b] = 1;
+						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
+								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+					}
+					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
+				}
+
+				if((a==0 && b == this.size-1)){
+					if(t[a][b] == 1){
+						rand = Math.random();
+						if(rand <= 0.30 && t[a][b-1] == 0) t2[a][b-1] = 1;
+						rand = Math.random();
+						if(rand <= 0.30 && t[a+1][b] == 0) t2[a+1][b] = 1;
+
+						rand = Math.random();
+						if(rand <= npChange) t2[a][b] = 1;
+						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
+								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+					}
+					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
+				}
+
+				if((a==this.size-1 && b == this.size-1)){
+					if(t[a][b] == 1){
+						rand = Math.random();
+						if(rand <= 0.30 && t[a][b-1] == 0) t2[a][b-1] = 1;
+						rand = Math.random();
+						if(rand <= 0.30 && t[a-1][b] == 0) t2[a-1][b] = 1;
+
+						rand = Math.random();
+						if(rand <= npChange) t2[a][b] = 1;
+						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
+								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+					}
+					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
+				}
+
+				if((a==0 || a == this.size-1) && !(b == 0 || b == this.size-1)){
+					if(t[a][b] == 1){
+						rand = Math.random();
+						if(rand <= 0.30 && t[a][b+1] == 0) t2[a][b+1] = 1;
+						rand = Math.random();
+						if(rand <= 0.30 && t[a][b-1] == 0) t2[a][b-1] = 1;
+
+						rand = Math.random();
+						if(rand <= npChange) t2[a][b] = 1;
+						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
+								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+					}
+					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
+				}
+
+				if((b == 0 || b == this.size-1) && !(a==0 || a == this.size-1)){
+					if(t[a][b] == 1){
+						rand = Math.random();
+						if(rand <= 0.30 && t[a+1][b] == 0) t2[a+1][b] = 1;
+						rand = Math.random();
+						if(rand <= 0.30 && t[a-1][b] == 0) t2[a-1][b] = 1;
+
+						rand = Math.random();
+						if(rand <= npChange) t2[a][b] = 1;
+						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
+								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+					}
+					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
+				}
+
+				if(a > 0 && a < this.size-1 && b > 0 && b < this.size-1){
+					if(t[a][b] == 1){
+						rand = Math.random();
+						if(rand <= 0.30 && t[a+1][b] == 0) t2[a+1][b] = 1;
+						rand = Math.random();
+						if(rand <= 0.30 && t[a-1][b] == 0) t2[a-1][b] = 1;
+						rand = Math.random();
+						if(rand <= 0.30 && t[a][b+1] == 0) t2[a][b+1] = 1;
+						rand = Math.random();
+						if(rand <= 0.30 && t[a][b-1] == 0) t2[a][b-1] = 1;
+
+						rand = Math.random();
+						if(rand <= npChange) t2[a][b] = 1;
+						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
+								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+					}
+					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
 			}
 		}
