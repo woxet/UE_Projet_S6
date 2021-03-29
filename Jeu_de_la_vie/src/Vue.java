@@ -14,6 +14,7 @@ public class Vue extends javax.swing.JFrame {
         // End of variables declaration   
 
     public Vue(int size, Modele grille) {
+        super("Jeu des épidémies");
         this.grille = grille;
         initComponents(size);
     }
