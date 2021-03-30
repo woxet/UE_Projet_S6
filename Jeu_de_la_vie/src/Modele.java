@@ -39,9 +39,9 @@ public class Modele extends JPanel {
 				if((a==0 && b == 0)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if(rand <= 0.30 && t[a][b+1] == 0) t2[a][b+1] = 1;
+						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a+1][b] == 0) t2[a+1][b] = 1;
+						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
 
 						rand = Math.random();
 						if(rand <= npChange) t2[a][b] = 1;
@@ -54,9 +54,9 @@ public class Modele extends JPanel {
 				if((a==this.size-1 && b == 0)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if(rand <= 0.30 && t[a][b+1] == 0) t2[a][b+1] = 1;
+						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a-1][b] == 0) t2[a-1][b] = 1;
+						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 
 						rand = Math.random();
 						if(rand <= npChange) t2[a][b] = 1;
@@ -69,9 +69,9 @@ public class Modele extends JPanel {
 				if((a==0 && b == this.size-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if(rand <= 0.30 && t[a][b-1] == 0) t2[a][b-1] = 1;
+						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a+1][b] == 0) t2[a+1][b] = 1;
+						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
 
 						rand = Math.random();
 						if(rand <= npChange) t2[a][b] = 1;
@@ -84,9 +84,9 @@ public class Modele extends JPanel {
 				if((a==this.size-1 && b == this.size-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if(rand <= 0.30 && t[a][b-1] == 0) t2[a][b-1] = 1;
+						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a-1][b] == 0) t2[a-1][b] = 1;
+						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 
 						rand = Math.random();
 						if(rand <= npChange) t2[a][b] = 1;
@@ -99,9 +99,9 @@ public class Modele extends JPanel {
 				if((a==0 || a == this.size-1) && !(b == 0 || b == this.size-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if(rand <= 0.30 && t[a][b+1] == 0) t2[a][b+1] = 1;
+						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a][b-1] == 0) t2[a][b-1] = 1;
+						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
 
 						rand = Math.random();
 						if(rand <= npChange) t2[a][b] = 1;
@@ -114,9 +114,9 @@ public class Modele extends JPanel {
 				if((b == 0 || b == this.size-1) && !(a==0 || a == this.size-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if(rand <= 0.30 && t[a+1][b] == 0) t2[a+1][b] = 1;
+						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a-1][b] == 0) t2[a-1][b] = 1;
+						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 
 						rand = Math.random();
 						if(rand <= npChange) t2[a][b] = 1;
@@ -129,13 +129,13 @@ public class Modele extends JPanel {
 				if(a > 0 && a < this.size-1 && b > 0 && b < this.size-1){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if(rand <= 0.30 && t[a+1][b] == 0) t2[a+1][b] = 1;
+						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a-1][b] == 0) t2[a-1][b] = 1;
+						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a][b+1] == 0) t2[a][b+1] = 1;
+						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
 						rand = Math.random();
-						if(rand <= 0.30 && t[a][b-1] == 0) t2[a][b-1] = 1;
+						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
 
 						rand = Math.random();
 						if(rand <= npChange) t2[a][b] = 1;
