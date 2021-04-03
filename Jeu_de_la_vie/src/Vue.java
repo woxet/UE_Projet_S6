@@ -18,7 +18,7 @@ public class Vue extends javax.swing.JFrame {
         this.grille = grille;
         initComponents(size);
     }
-                       
+          
     private void initComponents(int size) {
         jLabel5 = new javax.swing.JLabel();
         pop = new javax.swing.JLabel();
@@ -86,9 +86,7 @@ public class Vue extends javax.swing.JFrame {
         alive.setPreferredSize(new java.awt.Dimension(61, 40));
 
         jButton1.setText("Start");
-
         jButton2.setText("Stop");
-
         jButton3.setText("Restart");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
