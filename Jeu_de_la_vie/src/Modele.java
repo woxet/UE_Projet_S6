@@ -12,7 +12,7 @@ public class Modele extends JPanel {
     int lg;
     int lar;
     int[][] t;
-	public double pImmune, pMort, npChange;
+	public double pImmune, pMort, inf;
 
     public Modele(int lg, int lar){
 		this.setBackground(new java.awt.Color(0,0,0));
@@ -42,14 +42,14 @@ public class Modele extends JPanel {
 				if((a==0 && b == 0)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
+						if((rand <= inf && t[a][b+1] == 0) || (rand <= inf/100 && t[a][b+1] == 2)) t2[a][b+1] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
+						if((rand <= inf && t[a+1][b] == 0) || (rand <= inf/100 && t[a+1][b] == 2)) t2[a+1][b] = 1;
 
 						rand = Math.random();
-						if(rand <= npChange) t2[a][b] = 1;
-						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
-								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+						if(rand <= inf) t2[a][b] = 1;
+						else    if(rand > inf && rand <= inf+pImmune) t2[a][b] = 2;
+								else    if(rand > inf+pImmune && rand <= pImmune+inf+pMort) t2[a][b] = 3;
 					}
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
@@ -57,14 +57,14 @@ public class Modele extends JPanel {
 				if((a==this.lg-1 && b == 0)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
+						if((rand <= inf && t[a][b+1] == 0) || (rand <= inf/100 && t[a][b+1] == 2)) t2[a][b+1] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
+						if((rand <= inf && t[a-1][b] == 0) || (rand <= inf/100 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 
 						rand = Math.random();
 						if(rand <= pMort) t2[a][b] = 3;
 						else    if(rand > pMort && rand <= pMort+pImmune) t2[a][b] = 2;
-								else    if(rand > pMort+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 1;
+								else    if(rand > pMort+pImmune && rand <= pImmune+inf+pMort) t2[a][b] = 1;
 					}
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
@@ -72,14 +72,14 @@ public class Modele extends JPanel {
 				if((a==0 && b == this.lar-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
+						if((rand <= inf && t[a][b-1] == 0) || (rand <= inf/100 && t[a][b-1] == 2)) t2[a][b-1] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
+						if((rand <= inf && t[a+1][b] == 0) || (rand <= inf/100 && t[a+1][b] == 2)) t2[a+1][b] = 1;
 
 						rand = Math.random();
-						if(rand <= npChange) t2[a][b] = 1;
-						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
-								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+						if(rand <= inf) t2[a][b] = 1;
+						else    if(rand > inf && rand <= inf+pImmune) t2[a][b] = 2;
+								else    if(rand > inf+pImmune && rand <= pImmune+inf+pMort) t2[a][b] = 3;
 					}
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
@@ -87,14 +87,14 @@ public class Modele extends JPanel {
 				if((a==this.lg-1 && b == this.lar-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
+						if((rand <= inf && t[a][b-1] == 0) || (rand <= inf/100 && t[a][b-1] == 2)) t2[a][b-1] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
+						if((rand <= inf && t[a-1][b] == 0) || (rand <= inf/100 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 
 						rand = Math.random();
-						if(rand <= npChange) t2[a][b] = 1;
-						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
-								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+						if(rand <= inf) t2[a][b] = 1;
+						else    if(rand > inf && rand <= inf+pImmune) t2[a][b] = 2;
+								else    if(rand > inf+pImmune && rand <= pImmune+inf+pMort) t2[a][b] = 3;
 					}
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
@@ -102,14 +102,14 @@ public class Modele extends JPanel {
 				if((a==0 || a == this.lg-1) && !(b == 0 || b == this.lar-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
+						if((rand <= inf && t[a][b+1] == 0) || (rand <= inf/100 && t[a][b+1] == 2)) t2[a][b+1] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
+						if((rand <= inf && t[a][b-1] == 0) || (rand <= inf/100 && t[a][b-1] == 2)) t2[a][b-1] = 1;
 
 						rand = Math.random();
-						if(rand <= npChange) t2[a][b] = 1;
-						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
-								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+						if(rand <= inf) t2[a][b] = 1;
+						else    if(rand > inf && rand <= inf+pImmune) t2[a][b] = 2;
+								else    if(rand > inf+pImmune && rand <= pImmune+inf+pMort) t2[a][b] = 3;
 					}
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
@@ -117,14 +117,14 @@ public class Modele extends JPanel {
 				if((b == 0 || b == this.lar-1) && !(a==0 || a == this.lg-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
+						if((rand <= inf && t[a+1][b] == 0) || (rand <= inf/100 && t[a+1][b] == 2)) t2[a+1][b] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
+						if((rand <= inf && t[a-1][b] == 0) || (rand <= inf/100 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 
 						rand = Math.random();
-						if(rand <= npChange) t2[a][b] = 1;
-						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
-								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+						if(rand <= inf) t2[a][b] = 1;
+						else    if(rand > inf && rand <= inf+pImmune) t2[a][b] = 2;
+								else    if(rand > inf+pImmune && rand <= pImmune+inf+pMort) t2[a][b] = 3;
 					}
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
@@ -132,18 +132,18 @@ public class Modele extends JPanel {
 				if(a > 0 && a < this.lg-1 && b > 0 && b < this.lar-1){
 					if(t[a][b] == 1){
 						rand = Math.random();
-						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
+						if((rand <= inf && t[a+1][b] == 0) || (rand <= inf/100 && t[a+1][b] == 2)) t2[a+1][b] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
+						if((rand <= inf && t[a-1][b] == 0) || (rand <= inf/100 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
+						if((rand <= inf && t[a][b+1] == 0) || (rand <= inf/100 && t[a][b+1] == 2)) t2[a][b+1] = 1;
 						rand = Math.random();
-						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
+						if((rand <= inf && t[a][b-1] == 0) || (rand <= inf/100 && t[a][b-1] == 2)) t2[a][b-1] = 1;
 
 						rand = Math.random();
-						if(rand <= npChange) t2[a][b] = 1;
-						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
-								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+						if(rand <= inf) t2[a][b] = 1;
+						else    if(rand > inf && rand <= inf+pImmune) t2[a][b] = 2;
+								else    if(rand > inf+pImmune && rand <= pImmune+inf+pMort) t2[a][b] = 3;
 					}
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}

@@ -7,9 +7,9 @@ public class Main extends Thread{
         int lg = 30;
         int lar = 30;
         this.grille = new Modele(lg, lar);
-        this.f = new Vue(lg, lar, grille);
+        this.f = new Vue(lg, lar, this.grille);
         
-        this.c = new Controller(this, f);
+        this.c = new Controller(this, this.f);
     }
 
 	public void run() {
@@ -21,7 +21,7 @@ public class Main extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            this.grille.npChange = Double.parseDouble(f.jTextField1.getText());
+            this.grille.inf = Double.parseDouble(f.jTextField1.getText());
             this.grille.pImmune = Double.parseDouble(f.jTextField2.getText());
             this.grille.pMort = Double.parseDouble(f.jTextField3.getText());
             if(c.etat) this.grille.vie();
