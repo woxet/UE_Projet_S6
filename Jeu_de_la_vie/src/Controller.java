@@ -12,7 +12,7 @@ public class Controller implements ActionListener{
             public void mousePressed(MouseEvent e){
                 int x = (int)(e.getY()/20);
                 int y = (int)(e.getX()/20);
-                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length && f.grille.t[x][y] == 0) f.grille.t[x][y] = 1 ;
+                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length && (f.grille.t[x][y] == 0 || f.grille.t[x][y] == 2)) f.grille.t[x][y] = 1 ;
                 f.grille.repaint();
             }
         });
@@ -21,7 +21,7 @@ public class Controller implements ActionListener{
             public void mouseDragged(MouseEvent e) {
                 int x = (int)(e.getY()/20);
                 int y = (int)(e.getX()/20);
-                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length && f.grille.t[x][y] == 0) f.grille.t[x][y] = 1 ;
+                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length && (f.grille.t[x][y] == 0 || f.grille.t[x][y] == 2)) f.grille.t[x][y] = 1 ;
                 f.grille.repaint();
             }
             public void mouseMoved(MouseEvent e) {}
@@ -30,7 +30,7 @@ public class Controller implements ActionListener{
         f.jButton1.addActionListener(this);
         f.jButton2.addActionListener(this);
         f.jButton3.addActionListener(this);
-
+        f.jButton4.addActionListener(this);
     }
 
     @Override
@@ -45,12 +45,17 @@ public class Controller implements ActionListener{
 
         if (source == this.f.jButton3){
             if(etat) etat = false;
-            for(int a= 0; a< f.grille.size; a++){
-                for(int b= 0; b< f.grille.size; b++){
+            for(int a= 0; a< f.grille.lg; a++){
+                for(int b= 0; b< f.grille.lar; b++){
                     f.grille.t[a][b] = 0;
                 }
             }
         }
+/*
+        if (source == this.f.jButton4){
+            System.out.println(Integer.parseInt(f.jTextField5.getText()));
+            f.grille = new Modele(Integer.parseInt(f.jTextField5.getText()), Integer.parseInt(f.jTextField6.getText()));
+        }*/
     }
 
     

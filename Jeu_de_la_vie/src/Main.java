@@ -4,9 +4,10 @@ public class Main extends Thread{
     public Modele grille;
 
     public Main(){
-        int size = 30;
-        this.grille = new Modele(size);
-        this.f = new Vue(size, grille);
+        int lg = 30;
+        int lar = 30;
+        this.grille = new Modele(lg, lar);
+        this.f = new Vue(lg, lar, grille);
         
         this.c = new Controller(this, f);
     }
@@ -20,6 +21,9 @@ public class Main extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            this.grille.npChange = Double.parseDouble(f.jTextField1.getText());
+            this.grille.pImmune = Double.parseDouble(f.jTextField2.getText());
+            this.grille.pMort = Double.parseDouble(f.jTextField3.getText());
             if(c.etat) this.grille.vie();
             compt = grille.compteurs();
                 this.f.alive.setText("Personnes saines : "+compt[0]);

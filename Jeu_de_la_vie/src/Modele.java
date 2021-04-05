@@ -9,32 +9,35 @@ public class Modele extends JPanel {
     private static final long serialVersionUID = 1L;
     int x = 2;
     int y = 3;
-    int size;
+    int lg;
+    int lar;
     int[][] t;
+	public double pImmune, pMort, npChange;
 
-    public Modele(int size){
+    public Modele(int lg, int lar){
 		this.setBackground(new java.awt.Color(0,0,0));
-        this.size = size;
-        this.t = new int[size][size];
+        this.lg = lg;
+		this.lar = lar;
+        this.t = new int[lg][lar];
         
-        for(int a= 0; a< size; a++){
-            for(int b= 0; b< size; b++){
+        for(int a= 0; a< lg; a++){
+            for(int b= 0; b< lar; b++){
                 t[a][b] = 0;
             }
         }
 	}
 
 	public void vie(){
-		int [][]t2 = new int[size][size];
-		for(int a= 0; a< size; a++){
-			for(int b= 0; b< size; b++){
+		int [][]t2 = new int[lg][lar];
+		for(int a= 0; a< lg; a++){
+			for(int b= 0; b< lar; b++){
 				t2[a][b] = 0;
 			}
 		}
 		
-		double rand = 0, pImmune = 0.15, pMort = 0.05, npChange = 0.8;
-		for(int a = 0; a < this.size; a++){
-			for(int b = 0; b < this.size; b++){
+		double rand = 0;
+		for(int a = 0; a < this.lg; a++){
+			for(int b = 0; b < this.lar; b++){
 				//rand = Math.random();
 				if((a==0 && b == 0)){
 					if(t[a][b] == 1){
@@ -51,7 +54,7 @@ public class Modele extends JPanel {
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
 
-				if((a==this.size-1 && b == 0)){
+				if((a==this.lg-1 && b == 0)){
 					if(t[a][b] == 1){
 						rand = Math.random();
 						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
@@ -59,14 +62,14 @@ public class Modele extends JPanel {
 						if((rand <= 0.30 && t[a-1][b] == 0) || (rand <= 0.10 && t[a-1][b] == 2)) t2[a-1][b] = 1;
 
 						rand = Math.random();
-						if(rand <= npChange) t2[a][b] = 1;
-						else    if(rand > npChange && rand <= npChange+pImmune) t2[a][b] = 2;
-								else    if(rand > npChange+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 3;
+						if(rand <= pMort) t2[a][b] = 3;
+						else    if(rand > pMort && rand <= pMort+pImmune) t2[a][b] = 2;
+								else    if(rand > pMort+pImmune && rand <= pImmune+npChange+pMort) t2[a][b] = 1;
 					}
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
 
-				if((a==0 && b == this.size-1)){
+				if((a==0 && b == this.lar-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
 						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
@@ -81,7 +84,7 @@ public class Modele extends JPanel {
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
 
-				if((a==this.size-1 && b == this.size-1)){
+				if((a==this.lg-1 && b == this.lar-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
 						if((rand <= 0.30 && t[a][b-1] == 0) || (rand <= 0.10 && t[a][b-1] == 2)) t2[a][b-1] = 1;
@@ -96,7 +99,7 @@ public class Modele extends JPanel {
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
 
-				if((a==0 || a == this.size-1) && !(b == 0 || b == this.size-1)){
+				if((a==0 || a == this.lg-1) && !(b == 0 || b == this.lar-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
 						if((rand <= 0.30 && t[a][b+1] == 0) || (rand <= 0.10 && t[a][b+1] == 2)) t2[a][b+1] = 1;
@@ -111,7 +114,7 @@ public class Modele extends JPanel {
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
 
-				if((b == 0 || b == this.size-1) && !(a==0 || a == this.size-1)){
+				if((b == 0 || b == this.lar-1) && !(a==0 || a == this.lg-1)){
 					if(t[a][b] == 1){
 						rand = Math.random();
 						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
@@ -126,7 +129,7 @@ public class Modele extends JPanel {
 					else if(t2[a][b] == 0) t2[a][b] = t[a][b];			
 				}
 
-				if(a > 0 && a < this.size-1 && b > 0 && b < this.size-1){
+				if(a > 0 && a < this.lg-1 && b > 0 && b < this.lar-1){
 					if(t[a][b] == 1){
 						rand = Math.random();
 						if((rand <= 0.30 && t[a+1][b] == 0) || (rand <= 0.10 && t[a+1][b] == 2)) t2[a+1][b] = 1;
@@ -147,8 +150,8 @@ public class Modele extends JPanel {
 			}
 		}
 
-		for(int a= 0; a< this.size; a++){
-			for(int b= 0; b< this.size; b++){
+		for(int a= 0; a< this.lg; a++){
+			for(int b= 0; b< this.lar; b++){
 				this.t[a][b] = t2[a][b];
 			}
 		}
@@ -158,8 +161,8 @@ public class Modele extends JPanel {
 		int[] compt = new int[4];
 		for(int x = 0; x < 4; x++) compt[x] = 0;
 
-		for(int i = 0; i < this.size; i++){
-			for(int j = 0; j < this.size; j++){
+		for(int i = 0; i < this.lg; i++){
+			for(int j = 0; j < this.lar; j++){
 				compt[this.t[i][j]]++;
 			}
 		}
