@@ -1,5 +1,6 @@
 import java.awt.event.*;
 
+
 public class Controller implements ActionListener{
 
     boolean etat = false;
@@ -10,18 +11,18 @@ public class Controller implements ActionListener{
         this.f = f;
         f.grille.addMouseListener(new MouseAdapter(){
             public void mousePressed(MouseEvent e){
-                int x = (int)(e.getY()/20);
-                int y = (int)(e.getX()/20);
-                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length && (f.grille.t[x][y] == 0 || f.grille.t[x][y] == 2)) f.grille.t[x][y] = 1 ;
+                int x = (int)(e.getY()/(559/f.grille.lar));
+                int y = (int)(e.getX()/(785/f.grille.lg));
+                if(x >= 0 && x < f.grille.lg && y >= 0 && y < f.grille.lar && (f.grille.t[x][y] == 0 || f.grille.t[x][y] == 2)) f.grille.t[x][y] = 1 ;
                 f.grille.repaint();
             }
         });
 
         f.grille.addMouseMotionListener(new MouseMotionListener(){
             public void mouseDragged(MouseEvent e) {
-                int x = (int)(e.getY()/20);
-                int y = (int)(e.getX()/20);
-                if(x >= 0 && x < f.grille.t.length && y >= 0 && y < f.grille.t.length && (f.grille.t[x][y] == 0 || f.grille.t[x][y] == 2)) f.grille.t[x][y] = 1 ;
+                int x = (int)(e.getY()/(559/f.grille.lar));
+                int y = (int)(e.getX()/(785/f.grille.lg));
+                if(x >= 0 && x < f.grille.lg && y >= 0 && y < f.grille.lar && (f.grille.t[x][y] == 0 || f.grille.t[x][y] == 2)) f.grille.t[x][y] = 1 ;
                 f.grille.repaint();
             }
             public void mouseMoved(MouseEvent e) {}
@@ -51,11 +52,21 @@ public class Controller implements ActionListener{
                 }
             }
         }
-/*
+
         if (source == this.f.jButton4){
-            System.out.println(Integer.parseInt(f.jTextField5.getText()));
-            f.grille = new Modele(Integer.parseInt(f.jTextField5.getText()), Integer.parseInt(f.jTextField6.getText()));
-        }*/
+            m.grille = new Modele(Integer.parseInt(f.jTextField6.getText()), Integer.parseInt(f.jTextField5.getText()));
+            f.getContentPane().removeAll();
+            f.grille = m.grille;
+            f.initComponents(f.grille.lg, f.grille.lar);
+            m.c = new Controller(m, f);
+            f.getContentPane().repaint();
+
+            /*System.out.println(Integer.parseInt(f.jTextField5.getText()));
+            f.changeGrille(m.grille);
+            f.jButton1.removeActionListener(MouseAdapteur);
+
+            f.repaint();*/
+        }
     }
 
     

@@ -16,6 +16,8 @@ public class Modele extends JPanel {
 
     public Modele(int lg, int lar){
 		this.setBackground(new java.awt.Color(0,0,0));
+
+		//this.setSize(new java.awt.Dimension(785, 559));
         this.lg = lg;
 		this.lar = lar;
         this.t = new int[lg][lar];
@@ -171,64 +173,64 @@ public class Modele extends JPanel {
 
     public void paintComponent(Graphics g)
 	{
-		for(int a= 0 ; a < this.t.length ; a++){
-			for(int b= 0 ; b< this.t[0].length ; b++){
+		for(int a= 0 ; a < this.lg ; a++){
+			for(int b= 0 ; b< this.lar ; b++){
 				if(a==0 && b==0){
 					g.setColor(Color.black) ;
-            		g.fillRect(x-5,y-7,25,25);
+            		g.fillRect(x-5,y-7,785/this.lg,559/this.lar);
 				}
 				if(a==0){
 					g.setColor(Color.black) ;
-            		g.fillRect(x,y-7,25,25);
+            		g.fillRect(x,y-7,785/this.lg,559/this.lar);
 				}
 				if(b==0){
 					g.setColor(Color.black) ;
-            		g.fillRect(x-7,y,25,25);
+            		g.fillRect(x-7,y,785/this.lg,559/this.lar);
 				}
-				if(a==this.t.length-1){
+				if(a==this.lg-1){
 					g.setColor(Color.black) ;
-            		g.fillRect(x,y+7,25,25);
+            		g.fillRect(x,y+7,785/this.lg,559/this.lar);
 				}
-				if(b==this.t.length){
+				if(b==this.lar){
 					g.setColor(Color.black) ;
-            		g.fillRect(x+7,y,25,25);
+            		g.fillRect(x+7,y,785/this.lg,559/this.lar);
 				}
 				
 				//Cellulle saine
 				if(this.t[a][b] == 0){
                     g.setColor(Color.black) ;
-                    g.fillRect(x,y,25,25);
+                    g.fillRect(x,y,785/this.lg,559/this.lar);
                     g.setColor(Color.green);
-                    g.fillRect(x,y,17,17);
+                    g.fillRect(x+2,y+2,(785/this.lg)-6,(559/this.lar)-6);
 				}
 
 				//Cellulle infectée
 				if(this.t[a][b] == 1){
 					g.setColor(Color.black) ;
-					g.fillRect(x,y,23,23);
+					g.fillRect(x,y,785/this.lg,559/this.lar);
 					g.setColor(Color.red);
-					g.fillRect(x,y,17,17);	
+                    g.fillRect(x+2,y+2,(785/this.lg)-6,(559/this.lar)-6);
 				}
 
 				//Cellulle immunisée
 				if(this.t[a][b] == 2){
                     g.setColor(Color.black) ;
-                    g.fillRect(x,y,25,25);
+                    g.fillRect(x,y,785/this.lg,559/this.lar);
                     g.setColor(Color.cyan);
-                    g.fillRect(x,y,17,17);
+                    g.fillRect(x+2,y+2,(785/this.lg)-6,(559/this.lar)-6);
 				}
 
 				//Cellulle personne
 				if(this.t[a][b] == 3){
                     g.setColor(Color.black) ;
-                    g.fillRect(x,y,25,25);
+                    g.fillRect(x,y,785/this.lg,559/this.lar);
                     g.setColor(Color.gray);
-                    g.fillRect(x,y,17,17);
+                    g.fillRect(x+2,y+2,(785/this.lg)-6,(559/this.lar)-6);
 				}
-				x = x + 20;
+				x = x + 785/this.lg;
 			}
 			x = 5 ;
-			y = y + 20 ;
+			y = y + 559/this.lar ;
 		}
 		x = y = 5 ;
 	}

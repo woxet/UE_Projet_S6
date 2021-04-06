@@ -1,20 +1,12 @@
 public class Vue extends javax.swing.JFrame {
-
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
-    /**
-     * Creates new form NewJFrame
-     */
     public Vue(int lg, int lar, Modele grille) {
         super("Jeu des épidémies");
         this.grille = grille;
         initComponents(lg, lar);
     }
                         
-    private void initComponents(int lg, int lar) {
-
+    public void initComponents(int lg, int lar) {
         jPanel1 = new javax.swing.JPanel();
         pop = new javax.swing.JLabel();
         alive = new javax.swing.JLabel();
@@ -34,7 +26,6 @@ public class Vue extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         Largeur = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pop.setText("Population : ");
@@ -65,29 +56,24 @@ public class Vue extends javax.swing.JFrame {
 
         Longueur.setText("Longueur : ");
 
-        jTextField5.setText("30");
+        jTextField5.setText(String.valueOf(this.grille.lar));
 
         Largeur.setText("Largeur : ");
 
-        jTextField6.setText("30");
+        jTextField6.setText(String.valueOf(this.grille.lg));
         
         jButton4.setText("Reload");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 0));
-        setMaximumSize(new java.awt.Dimension((lg*20)+23+300, (lar*20)+45));
-        setMinimumSize(new java.awt.Dimension((lg*20)+23+300, (lar*20)+45));
-        setPreferredSize(new java.awt.Dimension((lg*20)+23+300, (lar*20)+47));
-        setResizable(false);
-        setSize(new java.awt.Dimension((lg*20)+25+300, (lar*20)+45));
+        setResizable(true);
+        setSize(new java.awt.Dimension(1523, 785));
 		setBackground(new java.awt.Color(0,0,0));
 
         this.grille.setBackground(new java.awt.Color(0, 0, 0));
-        this.grille.setMaximumSize(new java.awt.Dimension((lg*20)+27, (lar*20)+47));
-        this.grille.setMinimumSize(new java.awt.Dimension((lg*20)+27, (lar*20)+47));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,18 +156,18 @@ public class Vue extends javax.swing.JFrame {
                 .addGap(126, 126, 126))
         );
 
-        javax.swing.GroupLayout grilleLayout = new javax.swing.GroupLayout(grille);
+        grilleLayout = new javax.swing.GroupLayout(grille);
         this.grille.setLayout(grilleLayout);
         grilleLayout.setHorizontalGroup(
             grilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+            .addGap(0, 785, Short.MAX_VALUE)
         );
         grilleLayout.setVerticalGroup(
             grilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 559, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +186,23 @@ public class Vue extends javax.swing.JFrame {
         pack();
     }
 
-    // Variables declaration - do not modify   
+    public void changeGrille(Modele grille){
+        layout.removeLayoutComponent(this.jPanel1);
+        layout.removeLayoutComponent(this.grille);
+
+        this.grille = grille;
+        this.repaint();
+        this.getContentPane().invalidate();
+        this.getContentPane().validate();
+        this.getContentPane().repaint();
+        this.jTextField5.setText(String.valueOf(grille.lar));
+        this.jTextField6.setText(String.valueOf(grille.lg));
+    }
+
+    // Variables declaration - do not modify  
+    private javax.swing.GroupLayout jPanel1Layout;
+    private javax.swing.GroupLayout grilleLayout; 
+    private javax.swing.GroupLayout layout;
     public Modele grille; 
     private javax.swing.JLabel Largeur;
     private javax.swing.JLabel Longueur;                 
