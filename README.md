@@ -1,6 +1,6 @@
 # UE_Projet_S6
 
-Java version "17.0.1" 2021-10-19 LTS
+Java version >= "17.0.1" 2021-10-19 LTS
 
 Le code est disponible sur GitHub : https://github.com/woxet/UE_Projet_S6.git
 
