@@ -1,5 +1,7 @@
 # UE_Projet_S6
 
+Java version "17.0.1" 2021-10-19 LTS
+
 Le code est disponible sur GitHub : https://github.com/woxet/UE_Projet_S6.git
 
 1- Télécharger le code au formet zip ou en tapant dans le terminal git clone https://github.com/woxet/UE_Projet_S6.git
